@@ -1,0 +1,53 @@
+﻿{% extends "app/layout.html" %}
+{% block content %}
+{% if form != None %}
+<br>
+<h2>Создай своего персонажа</h2>
+<br>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+        {{ form.name }}<br><br>
+        <label for="{{ form.city.id_for_label }}">{{ form.city.label }}:</label>
+        {{ form.city }}<br>
+        <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
+        {{ form.gender }}
+        <label for="{{ form.species.id_for_label }}">{{ form.species.label }}:</label>
+        {{ form.species }}<br><br>
+        <label for="{{ form.job.id_for_label }}">{{ form.job.label }}:</label>
+        {{ form.job }}<br><br>
+        <label for="{{ form.personality.id_for_label }}">{{ form.personality.label }}:</label>
+        {{ form.personality }}<br><br>
+        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}:</label>
+        {{ form.message }}<br><br>
+        <input type="submit" value="Создать" id="button_finish_form">
+    </form>
+</div>
+{% else %}
+<br>
+<h2>Анкета вашего персонажа!</h2>
+<h3>Информация о нём:</h3>
+<ul>
+    <li><span>Имя:</span>{{ data.name }}</li>
+    <li><span>Место рождения:</span>{{ data.city }}</li>
+    <li><span>Пол:</span>{{ data.gender }}</li>
+    <li><span>Раса:</span>{{ data.species }}</li>
+    <li><span>Занятие:</span>{{ data.job }}</li>
+    <li><span>Характер:</span>{{ data.personality }}</li>
+    <li><span>Информация о нём:</span>{{ data.message }}</li>
+</ul>
+
+
+{% endif %}
+<script>
+    $('#button_finish_form').mouseover(() => {
+        $('#button_finish_form').css('background-color', 'pink');
+        $('#button_finish_form').css('color', 'azure');
+    });
+    $('#button_finish_form').mouseout(() => {
+        $('#button_finish_form').css('background-color', 'azure');
+        $('#button_finish_form').css('color', 'pink');
+    });
+</script>
+{% endblock %}

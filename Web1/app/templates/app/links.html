@@ -1,0 +1,27 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+
+{% load static %}
+
+<section>
+    <h3>Лучшие сайты для чтения манги</h3>
+    <ul>
+        <li><a href="https://mangalib.me/">Mangalib</a></li>
+        <li><a href="https://mangahub.me/">Mangahub</a></li>
+        <li><a href="https://remanga.org/">Remanga</a></li>
+    </ul>
+</section>
+<section>
+    <h3>Манга которую мы посоветуем</h3>
+    <ul>
+        <li><a href="https://mangalib.me/adabana?section=info">Пустоцвет</a></li>
+        <li><a href="https://mangalib.me/bulpyeonhan-jinsil?section=info">Неудобная правда</a></li>
+        <li><a href="https://mangalib.me/watashitachi-no-shiawase-na-jikan?section=info">часы нашего счастья</a></li>
+    </ul>
+</section>
+
+{% endblock %}
